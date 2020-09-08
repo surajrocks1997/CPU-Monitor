@@ -1,0 +1,27 @@
+{
+  "name": "cpu-monitor",
+  "productName": "CPU Monitor",
+  "version": "1.0.0",
+  "description": "monitors cpu usage",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "nodemon --exec electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=false --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"CPU Monitor\"",
+    "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=false --out=release-builds"
+  },
+  "keywords": [
+    "Electron"
+  ],
+  "author": "Suraj Gupta",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^10.1.1",
+    "electron-packager": "^15.1.0",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "electron-log": "^4.2.4"
+  }
+}
