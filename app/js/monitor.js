@@ -1,10 +1,11 @@
 const path = require('path');
 const osu = require('node-os-utils');
+const { title } = require('process');
 const cpu = osu.cpu;
 const mem = osu.mem;
 const os = osu.os;
 
-let cpuOverload = 80;
+let cpuOverload = 10;
 
 // Run every 2 seconds
 setInterval(() => {
@@ -53,4 +54,16 @@ const secondsToDHMS = (seconds) => {
   const m = Math.floor((seconds % 3600) / 60);
   const s = Math.floor(seconds % 60);
   return `${d}d ${h}h ${m}m ${s}s`;
+};
+
+setTimeout(() => {
+  notifyUser({
+    title: 'CPU OVERLOAD',
+    body: `CPU is over ${cpuOverload}%`,
+    icon: path.join(__dirname, 'img', 'icon.png'),
+  });
+}, 2000);
+
+const notifyUser = (options) => {
+  new Notification(options.title, options);
 };
