@@ -1,7 +1,6 @@
 const { ipcRenderer } = require('electron');
 const path = require('path');
 const osu = require('node-os-utils');
-const { title } = require('process');
 const cpu = osu.cpu;
 const mem = osu.mem;
 const os = osu.os;
@@ -15,7 +14,7 @@ ipcRenderer.on('settings:get', (e, settings) => {
   alertFrequency = +settings.alertFrequency;
 });
 
-// Run every 2 seconds
+// Run every 1.5 seconds
 setInterval(() => {
   // cpu usage
   cpu.usage().then((info) => {
